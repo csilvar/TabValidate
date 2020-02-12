@@ -9,8 +9,8 @@ tableau_server:
 
 # Workbooks (wbs) Tag
 tags:
-    search_tag: <SEARCH_TAGS_LIST>                  # Comma separated list of tags to search for wbs. These tags are used only in the performance check script (e.g. #readyForMigration)
-    reject_tag: "<REJECTED_TAG>"                    # Tag to be set to poor performant wbs after performance checks. The best practice script will use this tag to retrieve wbs to analyse
+    search_tag: <SEARCH_TAGS_LIST>                  # Comma separated list of tags to search for wbs (e.g. #readyForMigration). These tags are used only in the performance workbook_performance_checks script
+    reject_tag: <REJECTED_TAG>                      # Tag to be set to poor performant wbs (e.g.#rejectedForMigration). The workbook_performance_checks script will use this tag to retrieve wbs to analyse
 
 
 # Performance thresholds:
