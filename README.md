@@ -6,10 +6,10 @@ TabValidate is meant to be a simple script base to help you perform checks on yo
 
 The scripts are Python 2.7 and 3.x compatible. The following are the modules needed for the scripts to run:
 
-`pip install tableauserverclient`
-`pip install lxml`
-`pip install pyyaml`
-`pip install slackclient` - _Optional_
+* `pip install tableauserverclient`
+* `pip install lxml`
+* `pip install pyyaml`
+* `pip install slackclient` - _Optional_
 
 In order to run any of the scripts you will need to pass the path of the config.yml file.  
 
