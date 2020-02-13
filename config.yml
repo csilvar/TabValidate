@@ -7,21 +7,21 @@ tableau_server:
     password: <ADMIN_PASSWORD>                      # Password of user
     site: <TABLEAU_SERVER_SITE>                     # Leave empty for default site
 
-# Workbooks (wbs) Tag
+# Workbooks (wbs) Tag. Don't forget to enclose with your tags with double quotes if using the '#' character or adding more than one search tag
 tags:
-    search_tag: <SEARCH_TAGS_LIST>                  # Comma separated list of tags to search for wbs (e.g. #readyForMigration). These tags are used only in the performance workbook_performance_checks script
-    reject_tag: <REJECTED_TAG>                      # Tag to be set to poor performant wbs (e.g.#rejectedForMigration). The workbook_performance_checks script will use this tag to retrieve wbs to analyse
+    search_tag: <SEARCH_TAGS_LIST>                  # Comma separated list of tags to search for wbs (e.g. "#readyForMigration"). These tags are used only in the performance workbook_performance_checks script
+    reject_tag: <REJECTED_TAG>                      # Tag to be set to poor performant wbs (e.g. "#rejectedForMigration"). The workbook_performance_checks script will use this tag to retrieve wbs to analyse
 
 
 # Performance thresholds:
 performance_thresholds:
-    max_views: <MAX_VIEWS>                          # Maximum number of views to that a workbook can have to be considered as performant (set to 50 by default)
-    max_elapsed_time: <MAX_ELAPSED_TIME>            # Maximum time in seconds that a view must take to render to be migrated (set to 10 by default)
+    max_views: 50                                   # Maximum number of views to that a workbook can have to be considered as performant (set to 50 by default)
+    max_elapsed_time: 10                            # Maximum time in seconds that a view must take to render to be migrated (set to 10 by default)
 
 # SMTP connection
 smtp:
     smtp_host: <SMTP_HOST>                          # SMTP server
-    smtp_port: <SMTP_PORT>                          # SMTP port
+    smtp_port: <SMTP_PORT>                          # SMTP port -  typically 25 or 443
     smtp_user: <SMTP_USER>                          # User to login to the SMTP server
     smtp_password: <SMTP_PASSWORD>                  # Password of SMTP user
     smtp_from_email: <SMTP_FROM_EMAIL>              # From address to use as sender
@@ -31,4 +31,4 @@ slack:
     slack_token: <SLACK_TOKEN>                      # Slack token api
     slack_channel: <SLACK_CHANNEL>                  # Slack channel to post best practices feedback
 
-logging_level: <LOGGING_LEVEL>                      # Desired logging level (set to error by default).choices=['debug', 'info', 'error']       
+logging_level: error                     # Desired logging level. Choices=[debug, info, error] (set to error by default)
