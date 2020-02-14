@@ -10,7 +10,7 @@ import yaml
 
 def main():
     parser = argparse.ArgumentParser(description='Access to config.yml file')
-    parser.add_argument('--config-file', '-c', required=True,
+    parser.add_argument('--config-file', '-c', default='config.yml',
                         help='config file path. Default is config.yml')
 
     args = parser.parse_args()
