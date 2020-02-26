@@ -11,7 +11,7 @@ The scripts are Python 2.7 and 3.x compatible. The following are the modules nee
 * `pip install pyyaml`
 * `pip install slackclient` - _Optional_
 
-In order to run any of the scripts you will need to pass the path of the config.yml file.  
+In order to run any of the scripts you can specify the path of the config.yml file. Otherwise it will default to the local folder.
 
 `python workbook_best_practice_checks.py --config-file config.yml`
 
