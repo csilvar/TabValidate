@@ -4,7 +4,8 @@ import logging
 import smtplib
 import ssl
 import time
-import slack
+#import slack
+import os
 from urllib.parse import quote
 
 import tableauserverclient as TSC
@@ -20,8 +21,12 @@ def main():
 
     args = parser.parse_args()
     # Load yml config file
-    with open(args.config_file, 'r') as ymlfile:
-        cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+    try:
+        with open(args.config_file, 'r') as ymlfile:
+            cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+    except:
+        raise
+        
 
     if cfg['tableau_server']['password'] is None:
         password = getpass.getpass("Password: ")
@@ -81,14 +86,19 @@ def main():
             except Exception as e:
                 print("Error: unable to send email: {0}".format(e))
 
-            # OPTION 2 share the feedback to your users via an slack message
-            try:
-                slack_client = slack.WebClient(token=cfg['slack']['slack_token'])
-                slack_client.chat_postMessage(
-                                              channel=cfg['slack']['slack_channel'],
-                                              text=message)
-            except Exception as e:
-                print("Error: unable to send slack message: {0}".format(e))
+            # OPTION 2 uncomment to share the feedback to your users via an slack message. Make sure you
+            # also uncomment the import!
+            
+            # try:
+            #     slack_client = slack.WebClient(token=cfg['slack']['slack_token'])
+            #     slack_client.chat_postMessage(
+            #                                   channel=cfg['slack']['slack_channel'],
+            #                                   text=message)
+            # except Exception as e:
+            #     print("Error: unable to send slack message: {0}".format(e))
+            
+            # always clean your files!
+            os.remove(file_path)
 
             print(result)
 

@@ -15,8 +15,11 @@ def main():
 
     args = parser.parse_args()
     # Load yml config file
-    with open(args.config_file, 'r') as ymlfile:
-        cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+    try:
+        with open(args.config_file, 'r') as ymlfile:
+            cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+    except:
+        raise
 
     if cfg['tableau_server']['password'] is None:
         password = getpass.getpass("Password: ")
